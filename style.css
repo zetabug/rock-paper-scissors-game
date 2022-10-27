@@ -27,7 +27,9 @@ section {
   padding-top: 1rem;
   max-width: 55vw;
   margin: 0 auto;
+  text-align: center;
 }
+
 @media screen and (max-width:725px) {
   
 }

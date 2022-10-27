@@ -1,4 +1,8 @@
 const options = ["rock", "paper", "scissor"];
+let score = {
+  you: 0,
+  computer: 0
+};
 
 function getRandomInt() {
   return Math.floor(Math.random() * 3);
@@ -17,6 +21,8 @@ function compare(player, computer) {
   const won = "YOU WON";
   const lose = "YOU LOST";
   const resultEl = document.querySelector(".hands .result");
+  const youScore = document.querySelector(".score .you");
+  const computerScore = document.querySelector(".score .computer");
 
   if (player == computer) {
     console.log(`${player} is equal to ${computer}`);
@@ -25,27 +31,38 @@ function compare(player, computer) {
   } else if (player == "rock" && computer == "scissor") {
     console.log(`${player} defeats ${computer}`);
     update(player, computer);
+    score.you++;
     resultEl.innerText = won;
+    youScore.innerText = score.you;
   } else if (player == "rock" && computer == "paper") {
     console.log(`${player} loses to ${computer}`);
     update(player, computer);
+    score.computer++;
     resultEl.innerText = lose;
   } else if (player == "paper" && computer == "scissor") {
     console.log(`${player} loses to ${computer}`);
     update(player, computer);
+    score.computer++;
     resultEl.innerText = lose;
+    computerScore.innerText = score.computer;
   } else if (player == "paper" && computer == "rock") {
     console.log(`${player} defeats ${computer}`);
     update(player, computer);
+    score.you++;
     resultEl.innerText = won;
+    youScore.innerText = score.you;
   } else if (player == "scissor" && computer == "rock") {
     console.log(`${player} loses to ${computer}`);
     update(player, computer);
+    score.computer++;
     resultEl.innerText = lose;
+    computerScore.innerText = score.computer;
   } else if (player == "scissor" && computer == "paper") {
     console.log(`${player} defeats ${computer}`);
     update(player, computer);
+    score.you++;
     resultEl.innerText = won;
+    youScore.innerText = score.you;
   }
 }
 function update(player, computer) {
