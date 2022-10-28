@@ -20,76 +20,50 @@ btns.forEach((btn) => {
 function compare(player, computer) {
   const won = "YOU WON";
   const lose = "YOU LOST";
+  const draw = "DRAW";
+  const outcome = {
+    "rock": {
+      "rock": draw,
+      "paper": lose,
+      "scissor": won,
+    },
+    "paper": {
+      "rock": won,
+      "paper": draw,
+      "scissor": lose,
+    },
+    "scissor": {
+      "rock": lose,
+      "paper": won,
+      "scissor": draw,
+    },
+  };
   const resultEl = document.querySelector(".hands .result");
   const youScore = document.querySelector(".score .you");
   const computerScore = document.querySelector(".score .computer");
 
-  if (player == computer) {
-    console.log(`${player} is equal to ${computer}`);
-    update(player, computer);
-    resultEl.innerText = "DRAW";
-  } else if (player == "rock" && computer == "scissor") {
-    console.log(`${player} defeats ${computer}`);
-    update(player, computer);
+  update(player, computer);
+  resultEl.innerText = outcome[player][computer];
+  if (outcome[player][computer] == won){
     score.you++;
-    resultEl.innerText = won;
     youScore.innerText = score.you;
-  } else if (player == "rock" && computer == "paper") {
-    console.log(`${player} loses to ${computer}`);
-    update(player, computer);
+  }else if (outcome[player][computer] == lose){
     score.computer++;
-    resultEl.innerText = lose;
-  } else if (player == "paper" && computer == "scissor") {
-    console.log(`${player} loses to ${computer}`);
-    update(player, computer);
-    score.computer++;
-    resultEl.innerText = lose;
     computerScore.innerText = score.computer;
-  } else if (player == "paper" && computer == "rock") {
-    console.log(`${player} defeats ${computer}`);
-    update(player, computer);
-    score.you++;
-    resultEl.innerText = won;
-    youScore.innerText = score.you;
-  } else if (player == "scissor" && computer == "rock") {
-    console.log(`${player} loses to ${computer}`);
-    update(player, computer);
-    score.computer++;
-    resultEl.innerText = lose;
-    computerScore.innerText = score.computer;
-  } else if (player == "scissor" && computer == "paper") {
-    console.log(`${player} defeats ${computer}`);
-    update(player, computer);
-    score.you++;
-    resultEl.innerText = won;
-    youScore.innerText = score.you;
   }
 }
 function update(player, computer) {
-  const rock = "rock.png";
-  const paper = "paper.png";
-  const scissor = "scissor.png";
+  const images = {
+    "rock": "rock.png",
+    "paper": "paper.png",
+    "scissor": "scissor.png",
+  };
 
   const playerHand = document.querySelector(".hands .player-hand");
   const computerHand = document.querySelector(".hands .computer-hand");
 
-  // playerHand
-  if (player == "rock") {
-    playerHand.src = rock;
-  } else if (player == "paper") {
-    playerHand.src = paper;
-  } else if (player == "scissor") {
-    playerHand.src = scissor;
-  }
-
-  // computerHand
-  if (computer == "rock") {
-    computerHand.src = rock;
-  } else if (computer == "paper") {
-    computerHand.src = paper;
-  } else if (computer == "scissor") {
-    computerHand.src = scissor;
-  }
+  playerHand.src = images[player];
+  computerHand.src = images[computer];
 }
 // // Mapping
 // // 0 -> rock, 1->paper, 2->scissor
