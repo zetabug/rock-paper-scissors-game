@@ -3,6 +3,11 @@ let score = {
   you: 0,
   computer: 0
 };
+const colors = {
+  "won": "#6ac475",
+  "lost": "#c4736a",
+  "draw": "#5865f2",
+};
 
 function getRandomInt() {
   return Math.floor(Math.random() * 3);
@@ -18,36 +23,40 @@ btns.forEach((btn) => {
 });
 
 function compare(player, computer) {
-  const won = "YOU WON";
-  const lose = "YOU LOST";
-  const draw = "DRAW";
-  const outcome = {
+  const possibleOutcomes = {
     "rock": {
-      "rock": draw,
-      "paper": lose,
-      "scissor": won,
+      "rock": "draw",
+      "paper": "lost",
+      "scissor": "won",
     },
     "paper": {
-      "rock": won,
-      "paper": draw,
-      "scissor": lose,
+      "rock": "won",
+      "paper": "draw",
+      "scissor": "lost",
     },
     "scissor": {
-      "rock": lose,
-      "paper": won,
-      "scissor": draw,
+      "rock": "lost",
+      "paper": "won",
+      "scissor": "draw",
     },
+  };
+  const outcomeMessages = {
+    "won": "YOU WON",
+    "lost": "YOU LOST",
+    "draw": "DRAW",
   };
   const resultEl = document.querySelector(".hands .result");
   const youScore = document.querySelector(".score .you");
   const computerScore = document.querySelector(".score .computer");
 
   update(player, computer);
-  resultEl.innerText = outcome[player][computer];
-  if (outcome[player][computer] == won){
+  const outcome = possibleOutcomes[player][computer];
+  resultEl.innerText = outcomeMessages[outcome];
+  resultEl.style.color = colors[outcome];
+  if (outcome === "won"){
     score.you++;
     youScore.innerText = score.you;
-  }else if (outcome[player][computer] == lose){
+  }else if (outcome === "lose"){
     score.computer++;
     computerScore.innerText = score.computer;
   }
@@ -65,6 +74,21 @@ function update(player, computer) {
   playerHand.src = images[player];
   computerHand.src = images[computer];
 }
+
+
+//Reset Game Button ---------------------------------
+const resetBtn = document.querySelector(".reset");
+resetBtn.addEventListener("click", () => {
+  score.you = 0;
+  score.computer = 0;
+  document.querySelector(".score .you").innerText = score.you;
+  document.querySelector(".score .computer").innerText = score.computer;
+  document.querySelector(".hands .result").innerText = "";
+  document.querySelector(".hands .player-hand").src = "rock.png";
+  document.querySelector(".hands .computer-hand").src = "rock.png";
+});
+
+
 // // Mapping
 // // 0 -> rock, 1->paper, 2->scissor
 // const options = ["rock", "paper", "scissor"];
