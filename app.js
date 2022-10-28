@@ -102,6 +102,21 @@ function update(player, computer) {
     computerHand.src = scissor;
   }
 }
+
+
+//Reset Game Button ---------------------------------
+const resetBtn = document.querySelector(".reset");
+resetBtn.addEventListener("click", () => {
+  score.you = 0;
+  score.computer = 0;
+  document.querySelector(".score .you").innerText = score.you;
+  document.querySelector(".score .computer").innerText = score.computer;
+  document.querySelector(".hands .result").innerText = "";
+  document.querySelector(".hands .player-hand").src = "rock.png";
+  document.querySelector(".hands .computer-hand").src = "rock.png";
+});
+
+
 // // Mapping
 // // 0 -> rock, 1->paper, 2->scissor
 // const options = ["rock", "paper", "scissor"];

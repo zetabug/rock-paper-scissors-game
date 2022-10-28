@@ -15,6 +15,30 @@ section {
   width: 80vw;
 }
 
+
+/*--- Reset Button -----*/
+.reset{
+  background: #0f0f0f;
+  border: 1px solid #fff;
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.reset:hover{
+  background: #fff;
+  color: #0f0f0f;
+}
+
+.reset-div{
+  text-align: center;
+}
+/*--------------------*/
+
 .intro h1 {
   text-align: center;
   font-size: 2rem;
@@ -77,6 +101,7 @@ section {
 }
 
 .options {
+  min-height: 130px;
   display: flex;
   align-items: flex-start;
   gap: 1.5rem;
