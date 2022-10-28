@@ -3,6 +3,9 @@ let score = {
   you: 0,
   computer: 0
 };
+const WIN_GREEN = "#6ac475";
+const LOSE_RED = "#c4736a";
+const DRAW_BLUE = "#5865f2";
 
 function getRandomInt() {
   return Math.floor(Math.random() * 3);
@@ -11,7 +14,7 @@ function getRandomInt() {
 const btns = document.querySelectorAll(".options button");
 btns.forEach((btn) => {
   btn.addEventListener("click", () => {
-    const playerA = btn.innerText;
+    const playerA = btn.querySelector("label").innerText;
     const playerB = options[getRandomInt()];
     compare(playerA, playerB);
   });
@@ -27,40 +30,48 @@ function compare(player, computer) {
   if (player == computer) {
     console.log(`${player} is equal to ${computer}`);
     update(player, computer);
+    resultEl.style.color = DRAW_BLUE;
     resultEl.innerText = "DRAW";
   } else if (player == "rock" && computer == "scissor") {
     console.log(`${player} defeats ${computer}`);
     update(player, computer);
     score.you++;
+    resultEl.style.color = WIN_GREEN;
     resultEl.innerText = won;
     youScore.innerText = score.you;
   } else if (player == "rock" && computer == "paper") {
     console.log(`${player} loses to ${computer}`);
     update(player, computer);
     score.computer++;
+    resultEl.style.color = LOSE_RED;
     resultEl.innerText = lose;
+    computerScore.innerText = score.computer;
   } else if (player == "paper" && computer == "scissor") {
     console.log(`${player} loses to ${computer}`);
     update(player, computer);
     score.computer++;
+    resultEl.style.color = LOSE_RED;
     resultEl.innerText = lose;
     computerScore.innerText = score.computer;
   } else if (player == "paper" && computer == "rock") {
     console.log(`${player} defeats ${computer}`);
     update(player, computer);
     score.you++;
+    resultEl.style.color = WIN_GREEN;
     resultEl.innerText = won;
     youScore.innerText = score.you;
   } else if (player == "scissor" && computer == "rock") {
     console.log(`${player} loses to ${computer}`);
     update(player, computer);
     score.computer++;
+    resultEl.style.color = LOSE_RED;
     resultEl.innerText = lose;
     computerScore.innerText = score.computer;
   } else if (player == "scissor" && computer == "paper") {
     console.log(`${player} defeats ${computer}`);
     update(player, computer);
     score.you++;
+    resultEl.style.color = WIN_GREEN;
     resultEl.innerText = won;
     youScore.innerText = score.you;
   }
