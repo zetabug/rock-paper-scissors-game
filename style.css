@@ -15,9 +15,8 @@ section {
   width: 80vw;
 }
 
-
 /*--- Reset Button -----*/
-.reset{
+.reset {
   background: #0f0f0f;
   border: 1px solid #fff;
   color: #fff;
@@ -29,12 +28,12 @@ section {
   transition: all 0.3s ease;
 }
 
-.reset:hover{
+.reset:hover {
   background: #fff;
   color: #0f0f0f;
 }
 
-.reset-div{
+.reset-div {
   text-align: center;
 }
 /*--------------------*/
@@ -55,21 +54,20 @@ section {
   text-align: center;
 }
 
-.score h2{
+.score h2 {
   font-weight: 400;
 }
 
-.score hr{
+.score hr {
   margin-top: 25px;
   margin-bottom: 25px;
 }
 
-.winner{
+.winner {
   font-weight: 400;
 }
 
-@media screen and (max-width:725px) {
-  
+@media screen and (max-width: 725px) {
 }
 .match {
   display: flex;
@@ -118,66 +116,71 @@ section {
   background-color: transparent;
 }
 
-.options button label{
+.options button label {
   font-size: 18px;
   margin-top: 0px;
   opacity: 0;
   display: none;
 }
 
-.options button:hover > label{
+.options button:hover > label {
   margin-top: 25px;
   display: inline-block;
   opacity: 1;
 }
 
-.options button img{
+.options button img {
   height: 50px;
 }
 
-.options .paper img{
+.options .paper img {
   width: 50px;
   height: auto;
 }
 
-.options .rock img{
+.options .rock img {
   margin-top: 10px;
 }
 
-.options .scissor img{
+.options .scissor img {
   margin-top: 10px;
+}
+
+h2.result {
+  width: 300px;
 }
 
 @media screen and (max-width: 810px) {
-  .score{
+  .score {
     max-width: 60vw;
   }
-  .player-hand, .computer-hand {
+  .player-hand,
+  .computer-hand {
     width: 215px;
   }
-  h2.result{
+  h2.result {
     font-size: 1.3rem;
   }
-  h2.winner{
+  h2.winner {
     font-size: 1.5rem;
   }
 }
 
 @media screen and (max-width: 550px) {
-  .score{
+  .score {
     max-width: 70vw;
   }
-  .hands{
+  .hands {
     gap: 1rem;
   }
-.player-hand,
-.computer-hand{
-  width: 170px;
-}
-h2.result{
-  font-size: 1.2rem;
-}
-h2.winner{
-  font-size: 1.5rem;
-}
+  .player-hand,
+  .computer-hand {
+    width: 170px;
+  }
+  h2.result {
+    font-size: 1.2rem;
+  }
+  h2.winner {
+    font-size: 1.5rem;
+  }
 }

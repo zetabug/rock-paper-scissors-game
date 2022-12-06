@@ -1,7 +1,7 @@
 const options = ["rock", "paper", "scissor"];
 let score = {
   you: 0,
-  computer: 0
+  computer: 0,
 };
 const WIN_GREEN = "#6ac475";
 const LOSE_RED = "#c4736a";
@@ -16,9 +16,36 @@ btns.forEach((btn) => {
   btn.addEventListener("click", () => {
     const playerA = btn.querySelector("label").innerText;
     const playerB = options[getRandomInt()];
-    compare(playerA, playerB);
+    countdown().then(() => {
+      compare(playerA, playerB);
+    });
   });
 });
+
+async function countdown() {
+  return new Promise((resolve) => {
+    const countdownSayings = [...options, "shoot!"].map((x) => x.toUpperCase());
+    let counter = 0;
+    const countdownLabel = document.querySelector(".result");
+    countdownLabel.innerText = "";
+    countdownLabel.style.color = "#fff";
+    const inst = setInterval(changeText, 500);
+
+    function changeText() {
+      countdownLabel.innerText = countdownSayings[counter];
+      counter++;
+
+      if (counter >= countdownSayings.length) {
+        counter = 0;
+        clearInterval(inst);
+        setTimeout(() => {
+          countdownLabel.innerText = "";
+          resolve();
+        }, 500);
+      }
+    }
+  });
+}
 
 function compare(player, computer) {
   const won = "YOU WON";
@@ -103,7 +130,6 @@ function update(player, computer) {
   }
 }
 
-
 //Reset Game Button ---------------------------------
 const resetBtn = document.querySelector(".reset");
 resetBtn.addEventListener("click", () => {
@@ -115,7 +141,6 @@ resetBtn.addEventListener("click", () => {
   document.querySelector(".hands .player-hand").src = "rock.png";
   document.querySelector(".hands .computer-hand").src = "rock.png";
 });
-
 
 // // Mapping
 // // 0 -> rock, 1->paper, 2->scissor
