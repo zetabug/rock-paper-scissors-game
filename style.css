@@ -1,3 +1,19 @@
+@keyframes shakePlayer {
+  0% { transform: scaleX(-1) translateY(0) }
+  25% { transform:scaleX(-1) translateY(10px) }
+  50% { transform:scaleX(-1) translateY(-10px) }
+  75% { transform:scaleX(-1) translateY(10px) }
+  100% { transform:scaleX(-1) translateY(0) }
+ }
+
+ @keyframes shakeComputer {
+  0% { transform: translateY(0) }
+  25% { transform: translateY(10px) }
+  50% { transform: translateY(-10px) }
+  75% { transform: translateY(10px) }
+  100% { transform: translateY(0) }
+ }
+
 html,
 body {
   padding: 0;
@@ -66,6 +82,13 @@ section {
 
 .winner{
   font-weight: 400;
+}
+
+.shakePlayer{
+  animation:shakePlayer 0.25s infinite;
+}
+.shakeComputer{
+  animation:shakeComputer 0.25s infinite;
 }
 
 @media screen and (max-width:725px) {
