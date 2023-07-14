@@ -77,9 +77,9 @@ function compare(player, computer) {
   }
 }
 function update(player, computer) {
-  const rock = "rock.png";
-  const paper = "paper.png";
-  const scissor = "scissor.png";
+  const rock = "./images/rock.png";
+  const paper = "./images/paper.png";
+  const scissor = "./images/scissors.png";
 
   const playerHand = document.querySelector(".hands .player-hand");
   const computerHand = document.querySelector(".hands .computer-hand");
@@ -112,8 +112,8 @@ resetBtn.addEventListener("click", () => {
   document.querySelector(".score .you").innerText = score.you;
   document.querySelector(".score .computer").innerText = score.computer;
   document.querySelector(".hands .result").innerText = "";
-  document.querySelector(".hands .player-hand").src = "rock.png";
-  document.querySelector(".hands .computer-hand").src = "rock.png";
+  document.querySelector(".hands .player-hand").src = "./images/rock.png";
+  document.querySelector(".hands .computer-hand").src = "./images/rock.png";
 });
 
 
