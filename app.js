@@ -25,6 +25,8 @@ btns.forEach((btn) => {
       const result = document.querySelector('.result')
       const playerHand = document.querySelector(".hands .player-hand");
       const computerHand = document.querySelector(".hands .computer-hand");
+      const block = document.querySelector(".block");
+      block.style.display = 'inherit';
       switch (token) {
         case 1:
           playerHand.src = rock;
@@ -55,6 +57,8 @@ btns.forEach((btn) => {
     // 'wait' is over!, display computer choice and winner
     const playerA = btn.querySelector("label").innerText;
     const playerB = options[getRandomInt()];
+    const block = document.querySelector('.block');
+    block.style.display = 'none';
 
     compare(playerA, playerB)
   }, 3000);
