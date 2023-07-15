@@ -22,29 +22,32 @@ btns.forEach((btn) => {
       const rock = "./images/rock.png";
       const paper = "./images/paper.png";
       const scissor = "./images/scissors.png";
-      
+      const result = document.querySelector('.result')
       const playerHand = document.querySelector(".hands .player-hand");
       const computerHand = document.querySelector(".hands .computer-hand");
       switch (token) {
         case 1:
           playerHand.src = rock;
           computerHand.src = rock;
+          result.textContent = '.'
           break;
 
         case 2:
           playerHand.src = paper;
           computerHand.src = paper;
+          result.textContent = '..'
           
           break;
         
         case 3:
           playerHand.src = scissor;
           computerHand.src = scissor;
+          result.textContent = '...'
           token = 0;
           break;
       }
       token += 1;
-  },250)
+  }, 250)
 
   setTimeout(() => {
     clearInterval(intervalId);
