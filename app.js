@@ -11,14 +11,53 @@ function getRandomInt() {
   return Math.floor(Math.random() * 3);
 }
 
+
 const btns = document.querySelectorAll(".options button");
 btns.forEach((btn) => {
   btn.addEventListener("click", () => {
+    // set a 'wait' for 3 seconds before displaying computer's choice
+    //  and displaying a winner
+    let token = 0;
+    let intervalId = setInterval(() => {
+      const rock = "./images/rock.png";
+      const paper = "./images/paper.png";
+      const scissor = "./images/scissors.png";
+      
+      const playerHand = document.querySelector(".hands .player-hand");
+      const computerHand = document.querySelector(".hands .computer-hand");
+      switch (token) {
+        case 1:
+          playerHand.src = rock;
+          computerHand.src = rock;
+          break;
+
+        case 2:
+          playerHand.src = paper;
+          computerHand.src = paper;
+          
+          break;
+        
+        case 3:
+          playerHand.src = scissor;
+          computerHand.src = scissor;
+          token = 0;
+          break;
+      }
+      token += 1;
+  },250)
+
+  setTimeout(() => {
+    clearInterval(intervalId);
+
+    // 'wait' is over!, display computer choice and winner
     const playerA = btn.querySelector("label").innerText;
     const playerB = options[getRandomInt()];
-    compare(playerA, playerB);
+
+    compare(playerA, playerB)
+  }, 3000);
   });
 });
+
 
 function compare(player, computer) {
   const won = "YOU WON";
@@ -76,6 +115,8 @@ function compare(player, computer) {
     youScore.innerText = score.you;
   }
 }
+
+
 function update(player, computer) {
   const rock = "./images/rock.png";
   const paper = "./images/paper.png";
@@ -84,6 +125,7 @@ function update(player, computer) {
   const playerHand = document.querySelector(".hands .player-hand");
   const computerHand = document.querySelector(".hands .computer-hand");
 
+  
   // playerHand
   if (player == "rock") {
     playerHand.src = rock;
@@ -101,7 +143,7 @@ function update(player, computer) {
   } else if (computer == "scissor") {
     computerHand.src = scissor;
   }
-}
+};
 
 
 //Reset Game Button ---------------------------------
