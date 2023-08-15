@@ -1,4 +1,0 @@
-Add functionality that will have a kind of 'wait for it.....' effect before declaring
-winner
-
-put a button that says play

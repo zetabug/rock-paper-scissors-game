@@ -100,14 +100,6 @@ section {
   transform: scaleX(-1);
 }
 
-.block {
-  min-height: 130px;
-  width: 100%;
-  position: absolute;
-  background-color: rgba(0, 0, 0, 0.479);
-  display: none;
-}
-
 .options {
   min-height: 130px;
   display: flex;
@@ -115,7 +107,6 @@ section {
   gap: 1.5rem;
   margin: 0 auto;
   justify-content: center;
- 
 }
 
 .options button {
