@@ -7,6 +7,9 @@ const WIN_GREEN = "#6ac475";
 const LOSE_RED = "#c4736a";
 const DRAW_BLUE = "#5865f2";
 
+const playerHand = document.querySelector(".hands .player-hand");
+const computerHand = document.querySelector(".hands .computer-hand");
+
 function getRandomInt() {
   return Math.floor(Math.random() * 3);
 }
@@ -14,9 +17,14 @@ function getRandomInt() {
 const btns = document.querySelectorAll(".options button");
 btns.forEach((btn) => {
   btn.addEventListener("click", () => {
+    document.querySelector(".hands .player-hand").src = "rock.png";
+    document.querySelector(".hands .computer-hand").src = "rock.png";
+    playerHand.classList.add('shakePlayer')
+    computerHand.classList.add('shakeComputer')
     const playerA = btn.querySelector("label").innerText;
     const playerB = options[getRandomInt()];
-    compare(playerA, playerB);
+    setTimeout(()=>compare(playerA, playerB),1000)
+    
   });
 });
 
@@ -75,14 +83,13 @@ function compare(player, computer) {
     resultEl.innerText = won;
     youScore.innerText = score.you;
   }
+  // playerHand.classList.remove('shake')
+  // computerHand.classList.remove('shake')
 }
 function update(player, computer) {
   const rock = "rock.png";
   const paper = "paper.png";
   const scissor = "scissor.png";
-
-  const playerHand = document.querySelector(".hands .player-hand");
-  const computerHand = document.querySelector(".hands .computer-hand");
 
   // playerHand
   if (player == "rock") {
@@ -101,6 +108,8 @@ function update(player, computer) {
   } else if (computer == "scissor") {
     computerHand.src = scissor;
   }
+  playerHand.classList.remove('shakePlayer')
+  computerHand.classList.remove('shakeComputer')
 }
 
 
