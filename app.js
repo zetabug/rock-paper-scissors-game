@@ -11,60 +11,14 @@ function getRandomInt() {
   return Math.floor(Math.random() * 3);
 }
 
-
 const btns = document.querySelectorAll(".options button");
 btns.forEach((btn) => {
   btn.addEventListener("click", () => {
-    // set a 'wait' for 3 seconds before displaying computer's choice
-    //  and displaying a winner
-    let token = 0;
-    let intervalId = setInterval(() => {
-      const rock = "./images/rock.png";
-      const paper = "./images/paper.png";
-      const scissor = "./images/scissors.png";
-      const result = document.querySelector('.result')
-      const playerHand = document.querySelector(".hands .player-hand");
-      const computerHand = document.querySelector(".hands .computer-hand");
-      const block = document.querySelector(".block");
-      block.style.display = 'inherit';
-      switch (token) {
-        case 1:
-          playerHand.src = rock;
-          computerHand.src = rock;
-          result.textContent = '.'
-          break;
-
-        case 2:
-          playerHand.src = paper;
-          computerHand.src = paper;
-          result.textContent = '..'
-          
-          break;
-        
-        case 3:
-          playerHand.src = scissor;
-          computerHand.src = scissor;
-          result.textContent = '...'
-          token = 0;
-          break;
-      }
-      token += 1;
-  }, 250)
-
-  setTimeout(() => {
-    clearInterval(intervalId);
-
-    // 'wait' is over!, display computer choice and winner
     const playerA = btn.querySelector("label").innerText;
     const playerB = options[getRandomInt()];
-    const block = document.querySelector('.block');
-    block.style.display = 'none';
-
-    compare(playerA, playerB)
-  }, 3000);
+    compare(playerA, playerB);
   });
 });
-
 
 function compare(player, computer) {
   const won = "YOU WON";
@@ -122,17 +76,14 @@ function compare(player, computer) {
     youScore.innerText = score.you;
   }
 }
-
-
 function update(player, computer) {
-  const rock = "./images/rock.png";
-  const paper = "./images/paper.png";
-  const scissor = "./images/scissors.png";
+  const rock = "rock.png";
+  const paper = "paper.png";
+  const scissor = "scissor.png";
 
   const playerHand = document.querySelector(".hands .player-hand");
   const computerHand = document.querySelector(".hands .computer-hand");
 
-  
   // playerHand
   if (player == "rock") {
     playerHand.src = rock;
@@ -150,7 +101,7 @@ function update(player, computer) {
   } else if (computer == "scissor") {
     computerHand.src = scissor;
   }
-};
+}
 
 
 //Reset Game Button ---------------------------------
@@ -161,8 +112,8 @@ resetBtn.addEventListener("click", () => {
   document.querySelector(".score .you").innerText = score.you;
   document.querySelector(".score .computer").innerText = score.computer;
   document.querySelector(".hands .result").innerText = "";
-  document.querySelector(".hands .player-hand").src = "./images/rock.png";
-  document.querySelector(".hands .computer-hand").src = "./images/rock.png";
+  document.querySelector(".hands .player-hand").src = "rock.png";
+  document.querySelector(".hands .computer-hand").src = "rock.png";
 });
 
 
