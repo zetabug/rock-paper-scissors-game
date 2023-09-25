@@ -35,11 +35,32 @@ function compare(player, computer) {
   const youScore = document.querySelector(".score .you");
   const computerScore = document.querySelector(".score .computer");
 
+  // Flash the background color based on the result
+  if (resultEl.innerText === "YOU WON") {
+    flashBackground("#6ac475"); // Green for win
+  } else if (resultEl.innerText === "YOU LOST") {
+    flashBackground("#c4736a"); // Red for loss
+  } else if (resultEl.innerText === "DRAW") {
+    flashBackground(""#5865f2");  // Red for loss
+  }
+}
+
+
+
+
+function flashBackground(color) {
+    document.body.style.backgroundColor = color;
+    setTimeout(() => {
+        document.body.style.backgroundColor = "black"; // Reset to black after a few seconds
+    }, 1000); // Change back after 1000 milliseconds (1 second)
+
+  
   if (player == computer) {
     console.log(`${player} is equal to ${computer}`);
     update(player, computer);
     resultEl.style.color = DRAW_BLUE;
     resultEl.innerText = "DRAW";
+    bgcolor.style.background-color= DRAW_BLUE;
   } else if (player == "rock" && computer == "scissor") {
     console.log(`${player} defeats ${computer}`);
     update(player, computer);
@@ -126,10 +147,8 @@ resetBtn.addEventListener("click", () => {
 });
 
 //changing screen color
-document.addEventListener("DOMContentLoaded", function() {
-    const colorChangeDiv = document.getElementById("colorChangeDiv");
-    const changeColorButton = document.getElementById("changeColorButton");
 
+    
     changeColorButton.addEventListener("click", function() {
         colorChangeDiv.style.backgroundColor = "red";
 
