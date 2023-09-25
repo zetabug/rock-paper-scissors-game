@@ -28,6 +28,14 @@ btns.forEach((btn) => {
   });
 });
 
+function flashBackground(color) {
+  document.body.style.backgroundColor = color;
+  setTimeout(() => {
+      document.body.style.backgroundColor = "black"; // Reset to black after a few seconds
+  }, 1000); // Change back after 1000 milliseconds (1 second)
+}
+
+
 function compare(player, computer) {
   const won = "YOU WON";
   const lose = "YOU LOST";
@@ -35,32 +43,11 @@ function compare(player, computer) {
   const youScore = document.querySelector(".score .you");
   const computerScore = document.querySelector(".score .computer");
 
-  // Flash the background color based on the result
-  if (resultEl.innerText === "YOU WON") {
-    flashBackground("#6ac475"); // Green for win
-  } else if (resultEl.innerText === "YOU LOST") {
-    flashBackground("#c4736a"); // Red for loss
-  } else if (resultEl.innerText === "DRAW") {
-    flashBackground(""#5865f2");  // Red for loss
-  }
-}
-
-
-
-
-function flashBackground(color) {
-    document.body.style.backgroundColor = color;
-    setTimeout(() => {
-        document.body.style.backgroundColor = "black"; // Reset to black after a few seconds
-    }, 1000); // Change back after 1000 milliseconds (1 second)
-
-  
   if (player == computer) {
     console.log(`${player} is equal to ${computer}`);
     update(player, computer);
     resultEl.style.color = DRAW_BLUE;
     resultEl.innerText = "DRAW";
-    bgcolor.style.background-color= DRAW_BLUE;
   } else if (player == "rock" && computer == "scissor") {
     console.log(`${player} defeats ${computer}`);
     update(player, computer);
@@ -104,6 +91,14 @@ function flashBackground(color) {
     resultEl.innerText = won;
     youScore.innerText = score.you;
   }
+
+  if (resultEl.innerText === "YOU WON") {
+    flashBackground("#6ac475"); // Green for win
+    
+} else if (resultEl.innerText === "YOU LOST") {
+    flashBackground("#c4736a"); // Red for loss
+    
+}
   // playerHand.classList.remove('shake')
   // computerHand.classList.remove('shake')
 }
@@ -146,11 +141,6 @@ resetBtn.addEventListener("click", () => {
   document.querySelector(".hands .computer-hand").src = "rock.png";
 });
 
-//changing screen color
-
-    
-    changeColorButton.addEventListener("click", function() {
-        colorChangeDiv.style.backgroundColor = "red";
 
 // // Mapping
 // // 0 -> rock, 1->paper, 2->scissor
