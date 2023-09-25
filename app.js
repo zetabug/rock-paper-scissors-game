@@ -125,6 +125,13 @@ resetBtn.addEventListener("click", () => {
   document.querySelector(".hands .computer-hand").src = "rock.png";
 });
 
+//changing screen color
+document.addEventListener("DOMContentLoaded", function() {
+    const colorChangeDiv = document.getElementById("colorChangeDiv");
+    const changeColorButton = document.getElementById("changeColorButton");
+
+    changeColorButton.addEventListener("click", function() {
+        colorChangeDiv.style.backgroundColor = "red";
 
 // // Mapping
 // // 0 -> rock, 1->paper, 2->scissor
