@@ -28,6 +28,14 @@ btns.forEach((btn) => {
   });
 });
 
+function flashBackground(color) {
+  document.body.style.backgroundColor = color;
+  setTimeout(() => {
+      document.body.style.backgroundColor = "black"; // Reset to black after a few seconds
+  }, 1000); // Change back after 1000 milliseconds (1 second)
+}
+
+
 function compare(player, computer) {
   const won = "YOU WON";
   const lose = "YOU LOST";
@@ -83,6 +91,14 @@ function compare(player, computer) {
     resultEl.innerText = won;
     youScore.innerText = score.you;
   }
+
+  if (resultEl.innerText === "YOU WON") {
+    flashBackground("#6ac475"); // Green for win
+    
+} else if (resultEl.innerText === "YOU LOST") {
+    flashBackground("#c4736a"); // Red for loss
+    
+}
   // playerHand.classList.remove('shake')
   // computerHand.classList.remove('shake')
 }
