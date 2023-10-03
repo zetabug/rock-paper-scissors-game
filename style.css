@@ -20,7 +20,7 @@ body {
   margin: 0;
   width: 100%;
   overflow-x: hidden;
-  background: #0f0f0f;
+  background: black;
   color: #fff;
   font-family: "Open Sans", sans-serif;
 }
@@ -155,10 +155,11 @@ section {
 }
 
 .options button img{
-  height: 50px;
+  height: 60px;
 }
 
 .options .paper img{
+  margin-top: 6.5px;
   width: 50px;
   height: auto;
 }
