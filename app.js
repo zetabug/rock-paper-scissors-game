@@ -6,6 +6,8 @@ let score = {
 const WIN_GREEN = "#6ac475";
 const LOSE_RED = "#c4736a";
 const DRAW_BLUE = "#5865f2";
+const resultEl = document.querySelector(".hands .result");
+
 
 const playerHand = document.querySelector(".hands .player-hand");
 const computerHand = document.querySelector(".hands .computer-hand");
@@ -21,6 +23,7 @@ btns.forEach((btn) => {
     document.querySelector(".hands .computer-hand").src = "rock.png";
     playerHand.classList.add('shakePlayer')
     computerHand.classList.add('shakeComputer')
+    resultEl.innerText=''
     const playerA = btn.querySelector("label").innerText;
     const playerB = options[getRandomInt()];
     setTimeout(()=>compare(playerA, playerB),1000)
@@ -31,7 +34,6 @@ btns.forEach((btn) => {
 function compare(player, computer) {
   const won = "YOU WON";
   const lose = "YOU LOST";
-  const resultEl = document.querySelector(".hands .result");
   const youScore = document.querySelector(".score .you");
   const computerScore = document.querySelector(".score .computer");
 
