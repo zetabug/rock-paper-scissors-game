@@ -1,9 +1,6 @@
 # rock-paper-scissors-game
 A fully responsive rock,paper and scissors game developed using HTML,CSS &amp; JAVASCRIPT.
 
-# HACKTOBERFEST-ACCEPTED
-![Screenshot (8)](https://user-images.githubusercontent.com/72355377/198371433-8a530e8b-ccb0-4110-86d9-a34874708d66.png)
-
 # How to Contribute : 
   1. Check for the issues present and ask them to be assigned to you, if you think you can solve them. Then apply for a Pull Request(PR), I will accept it        after I review it.
   
