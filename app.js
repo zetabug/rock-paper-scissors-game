@@ -125,6 +125,19 @@ resetBtn.addEventListener("click", () => {
   document.querySelector(".hands .computer-hand").src = "rock.png";
 });
 
+function showLoading() {
+  // Hide the button
+  document.getElementById('loadingBtn').style.display = 'none';
+  // Show the loader
+  document.getElementById('loader').style.display = 'inline-block';
+  // Simulate a delay, you can replace this with an actual async task
+  setTimeout(function() {
+    // Show the button again after some time (simulating task completion)
+    document.getElementById('loadingBtn').style.display = 'inline-block';
+    // Hide the loader
+    document.getElementById('loader').style.display = 'none';
+  }, 500); // Change the delay as per your requirement
+}
 
 // // Mapping
 // // 0 -> rock, 1->paper, 2->scissor
