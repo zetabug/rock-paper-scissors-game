@@ -83,6 +83,8 @@ function compare(player, computer) {
     resultEl.innerText = won;
     youScore.innerText = score.you;
   }
+  // enable buttons again
+  ResetButtonsState();
   // playerHand.classList.remove('shake')
   // computerHand.classList.remove('shake')
 }
@@ -125,6 +127,32 @@ resetBtn.addEventListener("click", () => {
   document.querySelector(".hands .computer-hand").src = "rock.png";
 });
 
+
+/* Disable button untill */
+function disableButton() {
+
+  // Get the button element by its ID
+  var rockBtn = document.getElementById("rockButton");
+  var paperBtn = document.getElementById("paperButton");
+  var scissorBtn = document.getElementById("scissorButton");
+
+  // Disable the button
+  rockBtn.disabled = true;
+  paperBtn.disabled = true;
+  scissorBtn.disabled = true;
+}
+
+function ResetButtonsState()
+{
+  var rockBtn = document.getElementById("rockButton");
+  var paperBtn = document.getElementById("paperButton");
+  var scissorBtn = document.getElementById("scissorButton");
+
+  // Disable the button
+  rockBtn.disabled = false;
+  paperBtn.disabled = false;
+  scissorBtn.disabled = false;
+}
 
 // // Mapping
 // // 0 -> rock, 1->paper, 2->scissor
