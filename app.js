@@ -1,7 +1,7 @@
 const options = ["rock", "paper", "scissor"];
 let score = {
   you: 0,
-  computer: 0
+  computer: 0,
 };
 const WIN_GREEN = "#6ac475";
 const LOSE_RED = "#c4736a";
@@ -19,12 +19,11 @@ btns.forEach((btn) => {
   btn.addEventListener("click", () => {
     document.querySelector(".hands .player-hand").src = "rock.png";
     document.querySelector(".hands .computer-hand").src = "rock.png";
-    playerHand.classList.add('shakePlayer')
-    computerHand.classList.add('shakeComputer')
+    playerHand.classList.add("shakePlayer");
+    computerHand.classList.add("shakeComputer");
     const playerA = btn.querySelector("label").innerText;
     const playerB = options[getRandomInt()];
-    setTimeout(()=>compare(playerA, playerB),1000)
-    
+    setTimeout(() => compare(playerA, playerB), 1000);
   });
 });
 
@@ -108,10 +107,9 @@ function update(player, computer) {
   } else if (computer == "scissor") {
     computerHand.src = scissor;
   }
-  playerHand.classList.remove('shakePlayer')
-  computerHand.classList.remove('shakeComputer')
+  playerHand.classList.remove("shakePlayer");
+  computerHand.classList.remove("shakeComputer");
 }
-
 
 //Reset Game Button ---------------------------------
 const resetBtn = document.querySelector(".reset");
@@ -125,6 +123,27 @@ resetBtn.addEventListener("click", () => {
   document.querySelector(".hands .computer-hand").src = "rock.png";
 });
 
+document.addEventListener("DOMContentLoaded", () => {
+  const toggleButton = document.getElementById("toggleTheme");
+
+  const body = document.body;
+
+  // Load the theme from localStorage
+  const currentTheme = localStorage.getItem("theme") || "dark-mode";
+  body.classList.add(currentTheme);
+
+  toggleButton.addEventListener("click", () => {
+    if (body.classList.contains("dark-mode")) {
+      body.classList.remove("dark-mode");
+      body.classList.add("light-mode");
+      localStorage.setItem("theme", "light-mode");
+    } else {
+      body.classList.remove("light-mode");
+      body.classList.add("dark-mode");
+      localStorage.setItem("theme", "dark-mode");
+    }
+  });
+});
 
 // // Mapping
 // // 0 -> rock, 1->paper, 2->scissor

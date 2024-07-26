@@ -1,18 +1,38 @@
 @keyframes shakePlayer {
-  0% { transform: scaleX(-1) translateY(0) }
-  25% { transform:scaleX(-1) translateY(10px) }
-  50% { transform:scaleX(-1) translateY(-10px) }
-  75% { transform:scaleX(-1) translateY(10px) }
-  100% { transform:scaleX(-1) translateY(0) }
- }
+  0% {
+    transform: scaleX(-1) translateY(0);
+  }
+  25% {
+    transform: scaleX(-1) translateY(10px);
+  }
+  50% {
+    transform: scaleX(-1) translateY(-10px);
+  }
+  75% {
+    transform: scaleX(-1) translateY(10px);
+  }
+  100% {
+    transform: scaleX(-1) translateY(0);
+  }
+}
 
- @keyframes shakeComputer {
-  0% { transform: translateY(0) }
-  25% { transform: translateY(10px) }
-  50% { transform: translateY(-10px) }
-  75% { transform: translateY(10px) }
-  100% { transform: translateY(0) }
- }
+@keyframes shakeComputer {
+  0% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(10px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  75% {
+    transform: translateY(10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
 
 html,
 body {
@@ -29,11 +49,11 @@ section {
   min-height: 100vh;
   margin: 0 auto;
   width: 80vw;
+  position: relative;
 }
 
-
 /*--- Reset Button -----*/
-.reset{
+.reset {
   background: #0f0f0f;
   border: 1px solid #fff;
   color: #fff;
@@ -45,12 +65,12 @@ section {
   transition: all 0.3s ease;
 }
 
-.reset:hover{
+.reset:hover {
   background: #fff;
   color: #0f0f0f;
 }
 
-.reset-div{
+.reset-div {
   text-align: center;
 }
 /*--------------------*/
@@ -71,28 +91,27 @@ section {
   text-align: center;
 }
 
-.score h2{
+.score h2 {
   font-weight: 400;
 }
 
-.score hr{
+.score hr {
   margin-top: 25px;
   margin-bottom: 25px;
 }
 
-.winner{
+.winner {
   font-weight: 400;
 }
 
-.shakePlayer{
-  animation:shakePlayer 0.25s infinite;
+.shakePlayer {
+  animation: shakePlayer 0.25s infinite;
 }
-.shakeComputer{
-  animation:shakeComputer 0.25s infinite;
+.shakeComputer {
+  animation: shakeComputer 0.25s infinite;
 }
 
-@media screen and (max-width:725px) {
-  
+@media screen and (max-width: 725px) {
 }
 .match {
   display: flex;
@@ -141,66 +160,111 @@ section {
   background-color: transparent;
 }
 
-.options button label{
+.options button label {
   font-size: 18px;
   margin-top: 0px;
   opacity: 0;
   display: none;
 }
 
-.options button:hover > label{
+.options button:hover > label {
   margin-top: 25px;
   display: inline-block;
   opacity: 1;
 }
 
-.options button img{
+.options button img {
   height: 50px;
 }
 
-.options .paper img{
+.options .paper img {
   width: 50px;
   height: auto;
 }
 
-.options .rock img{
+.options .rock img {
   margin-top: 10px;
 }
 
-.options .scissor img{
+.options .scissor img {
   margin-top: 10px;
 }
 
 @media screen and (max-width: 810px) {
-  .score{
+  .score {
     max-width: 60vw;
   }
-  .player-hand, .computer-hand {
+  .player-hand,
+  .computer-hand {
     width: 215px;
   }
-  h2.result{
+  h2.result {
     font-size: 1.3rem;
   }
-  h2.winner{
+  h2.winner {
     font-size: 1.5rem;
   }
 }
 
 @media screen and (max-width: 550px) {
-  .score{
+  .score {
     max-width: 70vw;
   }
-  .hands{
+  .hands {
     gap: 1rem;
   }
-.player-hand,
-.computer-hand{
-  width: 170px;
+  .player-hand,
+  .computer-hand {
+    width: 170px;
+  }
+  h2.result {
+    font-size: 1.2rem;
+  }
+  h2.winner {
+    font-size: 1.5rem;
+  }
 }
-h2.result{
-  font-size: 1.2rem;
+
+.light-mode {
+  background: #ffffff;
+  color: #000000;
 }
-h2.winner{
-  font-size: 1.5rem;
+
+.light-mode .score {
+  border-color: #000000;
 }
+
+.light-mode .reset {
+  background: #ffffff;
+  color: #000000;
+  border: 1px solid #000000;
+}
+
+.light-mode .reset:hover {
+  background: #000000;
+  color: #ffffff;
+}
+
+.light-mode .icon {
+  filter: invert(1) brightness(1) contrast(1);
+}
+
+.toggle {
+  cursor: pointer;
+  width: fit-content;
+  position: absolute;
+  top: 0;
+  margin: 10px;
+}
+
+.light-mode .sun {
+  display: none;
+}
+
+.moon {
+  display: none;
+}
+
+.light-mode .moon {
+  display: block;
 }
