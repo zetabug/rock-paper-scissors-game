@@ -15,48 +15,50 @@
   <body>
     <section class="game">
       <div class="intro">
-        <h1>Rock, Paper & Scissors</h1>
-      </div>
-
-      <div class="score">
-        <h2>
-          You
-          <br>
-          <hr>
-          Score: <span class="you">0</span>
-        </h2>
-        <h2>
-          Computer
-          <br>
-          <hr>
-          Score: <span class="computer">0</span>
-        </h2>
+        <h1></h1>
       </div>
 
       <div class="match">
         <div class="hands">
-          <img class="player-hand" src="rock.png" alt="" />
+          <div class="player-area">
+            <img class="player-hand" src="../icons/hand-icon.png" alt="" />
+          </div>
           <h2 class="result"></h2>
-          <img class="computer-hand" src="rock.png" alt="" />
+          <div class="computer-area">
+            <img class="computer-hand" src="../icons/hand-icon.png" alt="" />
+          </div>
+              
         </div>
 
-        <h2 class="winner">Choose an option</h2>
         <div class="options">
           <button class="rock">
-            <img src="./rock.svg" alt="rock"></img>
+            <img src="../icons/rock-button.png" alt="rock" />
             <br>
             <label>rock</label>
           </button>
           <button class="paper">
-            <img src="./paper.svg" alt="paper"></img>
+            <img src="../icons/hand-button.png" alt="paper" />
             <br>
             <label>paper</label>
           </button>
           <button class="scissor">
-            <img src="./scissor.svg" alt="scissor"></img>
+            <img src="../icons/scissor-button.png" alt="scissor" />
             <br>
             <label>scissor</label>
           </button>
+        </div>
+      </div>
+
+      <div class="score">
+        <div class="score-block">
+          <h2>You</h2>
+          <hr>
+          <h2>Score: <span class="you">0</span></h2>
+        </div>
+        <div class="score-block">
+          <h2>Computer</h2>
+          <hr>
+          <h2>Score: <span class="computer">0</span></h2>
         </div>
       </div>
       

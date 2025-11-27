@@ -14,14 +14,17 @@
   100% { transform: translateY(0) }
  }
 
-html,
+html {
+  box-sizing: border-box;
+}
 body {
   padding: 0;
   margin: 0;
-  width: 100%;
-  overflow-x: hidden;
-  background: #0f0f0f;
-  color: #fff;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: url('../icons/background.png') center center/cover no-repeat;
+  color: #222;
   font-family: "Open Sans", sans-serif;
 }
 
@@ -51,6 +54,11 @@ section {
 }
 
 .reset-div{
+  position: absolute;
+  left: 50%;
+  bottom: 20px;
+  transform: translateX(-50%);
+  width: 100vw;
   text-align: center;
 }
 /*--------------------*/
@@ -72,7 +80,9 @@ section {
 }
 
 .score h2{
-  font-weight: 400;
+  font-weight: bold;
+  color: #fff;
+  font-family: Monaco, monospace;
 }
 
 .score hr{
@@ -80,6 +90,13 @@ section {
   margin-bottom: 25px;
 }
 
+.score-block {
+  background: #222;
+  border-radius: 18px;
+  padding: 18px 28px;
+  display: inline-block;
+  box-shadow: 0 2px 8px #222;
+}
 .winner{
   font-weight: 400;
 }
@@ -94,17 +111,17 @@ section {
 @media screen and (max-width:725px) {
   
 }
-.match {
+.hands {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 50vw;
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  justify-content: space-between;
-  margin-top: -2rem;
-}
-
-.match h2 {
-  font-size: 2rem;
-  text-align: center;
+  gap: 15vw;
+  transform: translateY(-50%);
+  pointer-events: none;
 }
 
 .match .hands {
@@ -124,11 +141,15 @@ section {
 }
 
 .options {
-  min-height: 130px;
+  position: absolute;
+  left: 50%;
+  bottom: 100px;
+  transform: translateX(-50%);
+  min-height: 120px;
   display: flex;
-  align-items: flex-start;
-  gap: 1.5rem;
-  margin: 0 auto;
+  align-items: flex-end;
+  gap: 0.5rem;
+  margin: 0;
   justify-content: center;
 }
 
@@ -152,13 +173,15 @@ section {
   margin-top: 25px;
   display: inline-block;
   opacity: 1;
+  color: #000;
 }
 
 .options button img{
-  height: 50px;
+  height: 130px;
+  width: 130px;
 }
 
-.options .paper img{
+.options .hand img{
   width: 50px;
   height: auto;
 }
@@ -193,9 +216,11 @@ section {
   .hands{
     gap: 1rem;
   }
-.player-hand,
-.computer-hand{
-  width: 170px;
+  .user-symbol {
+  margin-left: -5vw; /* Moves the user hand left */
+}
+.computer-symbol {
+  margin-right: 0; /* Adjusts the computer hand */
 }
 h2.result{
   font-size: 1.2rem;

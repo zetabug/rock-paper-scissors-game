@@ -17,9 +17,9 @@ function getRandomInt() {
 const btns = document.querySelectorAll(".options button");
 btns.forEach((btn) => {
   btn.addEventListener("click", () => {
-    document.querySelector(".hands .player-hand").src = "rock.png";
-    document.querySelector(".hands .computer-hand").src = "rock.png";
-    playerHand.classList.add('shakePlayer')
+    document.querySelector(".hands .player-hand").src = "../icons/rock-icon.png";
+    document.querySelector(".hands .computer-hand").src = "../icons/rock-icon.png";
+    playerHand.classList.add('shakePlayer') 
     computerHand.classList.add('shakeComputer')
     const playerA = btn.querySelector("label").innerText;
     const playerB = options[getRandomInt()];
@@ -87,9 +87,9 @@ function compare(player, computer) {
   // computerHand.classList.remove('shake')
 }
 function update(player, computer) {
-  const rock = "rock.png";
-  const paper = "paper.png";
-  const scissor = "scissor.png";
+  const rock = "../icons/rock-icon.png";
+  const paper = "../icons/hand-icon.png";
+  const scissor = "../icons/scissor-icon.png";
 
   // playerHand
   if (player == "rock") {
@@ -121,8 +121,8 @@ resetBtn.addEventListener("click", () => {
   document.querySelector(".score .you").innerText = score.you;
   document.querySelector(".score .computer").innerText = score.computer;
   document.querySelector(".hands .result").innerText = "";
-  document.querySelector(".hands .player-hand").src = "rock.png";
-  document.querySelector(".hands .computer-hand").src = "rock.png";
+  document.querySelector(".hands .player-hand").src = "../icons/rock-icon.png";
+  document.querySelector(".hands .computer-hand").src = "../icons/rock-icon.png";
 });
 
 
