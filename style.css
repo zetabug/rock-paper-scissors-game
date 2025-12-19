@@ -139,6 +139,9 @@ section {
   border: none;
   color: #fff;
   background-color: transparent;
+
+  /* Add smooth transition for hover effect */
+  transition: transform 0.2s ease;
 }
 
 .options button label{
@@ -148,14 +151,19 @@ section {
   display: none;
 }
 
+.options button:hover img {
+  transform: scale(1.2);      /* grow image 20% on hover */
+}
+
 .options button:hover > label{
   margin-top: 25px;
   display: inline-block;
   opacity: 1;
 }
 
-.options button img{
-  height: 50px;
+.options button img {
+  height: 50px;               /* keep initial size */
+  transition: transform 0.2s ease; /* smooth scaling */
 }
 
 .options .paper img{
