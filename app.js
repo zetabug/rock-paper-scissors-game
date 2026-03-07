@@ -3,8 +3,8 @@ let score = {
   you: 0,
   computer: 0
 };
-const WIN_GREEN = "#6ac475";
-const LOSE_RED = "#c4736a";
+const WIN_GREEN = "#228B22";
+const LOSE_RED = "#8B0000";
 const DRAW_BLUE = "#5865f2";
 
 const playerHand = document.querySelector(".hands .player-hand");
@@ -29,8 +29,8 @@ btns.forEach((btn) => {
 });
 
 function compare(player, computer) {
-  const won = "YOU WON";
-  const lose = "YOU LOST";
+  const won = "YOU WON 🎉 Yay!";
+  const lose = "YOU LOST , Try Again Harder!";
   const resultEl = document.querySelector(".hands .result");
   const youScore = document.querySelector(".score .you");
   const computerScore = document.querySelector(".score .computer");
@@ -123,6 +123,24 @@ resetBtn.addEventListener("click", () => {
   document.querySelector(".hands .result").innerText = "";
   document.querySelector(".hands .player-hand").src = "rock.png";
   document.querySelector(".hands .computer-hand").src = "rock.png";
+});
+
+// Dark Mode Toggle ---------------------------------
+const themeToggle = document.getElementById("theme-toggle");
+const body = document.body;
+
+// Check for saved theme preference
+const savedTheme = localStorage.getItem("theme");
+if (savedTheme === "dark") {
+  body.classList.add("dark-mode");
+  themeToggle.textContent = "☀️ Light Mode";
+}
+
+themeToggle.addEventListener("click", () => {
+  body.classList.toggle("dark-mode");
+  const isDark = body.classList.contains("dark-mode");
+  themeToggle.textContent = isDark ? "☀️ Light Mode" : "🌙 Dark Mode";
+  localStorage.setItem("theme", isDark ? "dark" : "light");
 });
 
 
