@@ -20,9 +20,15 @@ body {
   margin: 0;
   width: 100%;
   overflow-x: hidden;
-  background: #0f0f0f;
+  background: plum;
   color: #fff;
   font-family: "Open Sans", sans-serif;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+body.dark-mode {
+  background: #1a1a1a;
+  color: #f0f0f0;
 }
 
 section {
@@ -34,7 +40,7 @@ section {
 
 /*--- Reset Button -----*/
 .reset{
-  background: #0f0f0f;
+  background: palevioletred;
   border: 1px solid #fff;
   color: #fff;
   padding: 10px 20px;
@@ -46,8 +52,19 @@ section {
 }
 
 .reset:hover{
-  background: #fff;
+  background: palevioletred;
   color: #0f0f0f;
+}
+
+body.dark-mode .reset {
+  background: #333;
+  border-color: #f0f0f0;
+  color: #f0f0f0;
+}
+
+body.dark-mode .reset:hover {
+  background: #555;
+  color: #fff;
 }
 
 .reset-div{
@@ -59,6 +76,36 @@ section {
   text-align: center;
   font-size: 2rem;
   font-weight: 500;
+}
+
+#theme-toggle {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: palevioletred;
+  border: 1px solid #fff;
+  color: #fff;
+  padding: 8px 12px;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#theme-toggle:hover {
+  background: palevioletred;
+  color: #0f0f0f;
+}
+
+body.dark-mode #theme-toggle {
+  background: #333;
+  border-color: #f0f0f0;
+  color: #f0f0f0;
+}
+
+body.dark-mode #theme-toggle:hover {
+  background: #555;
+  color: #fff;
 }
 
 .score {
