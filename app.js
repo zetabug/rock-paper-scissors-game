@@ -4,7 +4,7 @@ let score = {
   computer: 0
 };
 const WIN_GREEN = "#6ac475";
-const LOSE_RED = "#c4736a";
+const LOSE_RED = "#fffcfb";
 const DRAW_BLUE = "#5865f2";
 
 const playerHand = document.querySelector(".hands .player-hand");
@@ -29,8 +29,8 @@ btns.forEach((btn) => {
 });
 
 function compare(player, computer) {
-  const won = "YOU WON";
-  const lose = "YOU LOST";
+  const won = "YOU WON !Congratulations";
+  const lose = "YOU LOST !Better luck next time";
   const resultEl = document.querySelector(".hands .result");
   const youScore = document.querySelector(".score .you");
   const computerScore = document.querySelector(".score .computer");

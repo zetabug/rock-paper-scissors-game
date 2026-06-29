@@ -20,10 +20,11 @@ body {
   margin: 0;
   width: 100%;
   overflow-x: hidden;
-  background: #0f0f0f;
+  background: #720909;
   color: #fff;
   font-family: "Open Sans", sans-serif;
 }
+
 
 section {
   min-height: 100vh;
@@ -58,8 +59,11 @@ section {
 .intro h1 {
   text-align: center;
   font-size: 2rem;
-  font-weight: 500;
+  font-weight: bolder;
+  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  
 }
+
 
 .score {
   display: flex;
@@ -85,10 +89,10 @@ section {
 }
 
 .shakePlayer{
-  animation:shakePlayer 0.25s infinite;
+  animation:shakePlayer 0.3s infinite;
 }
 .shakeComputer{
-  animation:shakeComputer 0.25s infinite;
+  animation:shakeComputer 0.3s infinite;
 }
 
 @media screen and (max-width:725px) {
@@ -130,6 +134,7 @@ section {
   gap: 1.5rem;
   margin: 0 auto;
   justify-content: center;
+  overflow: hidden; 
 }
 
 .options button {
@@ -161,14 +166,32 @@ section {
 .options .paper img{
   width: 50px;
   height: auto;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.paper:hover img {
+  transform: scale(1.2); 
 }
 
 .options .rock img{
   margin-top: 10px;
+   object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.rock:hover img {
+  transform: scale(1.2); 
 }
 
 .options .scissor img{
   margin-top: 10px;
+   object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.scissor:hover img {
+  transform: scale(1.2); 
 }
 
 @media screen and (max-width: 810px) {
